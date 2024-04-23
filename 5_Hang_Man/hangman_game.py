@@ -32,7 +32,7 @@ while "_" in display and lives > 0:
   
   # If the user has entered a letter they've already guessed, inform the player about it.
   if guess in display:
-    print(f"The \"{guess}\” has already been guessed")
+    print(f"The \"{guess}” has already been guessed")
 
   # Check guessed letter
   for position in range(word_length):
