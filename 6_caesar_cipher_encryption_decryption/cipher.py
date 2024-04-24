@@ -40,19 +40,19 @@ def caesar(start_text, shifting_amount, direction):
 # print graphics
 print(logo)
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number:\n"))
-cipher_state = True
+continue_cipher = True
+while continue_cipher:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number:\n"))
 
-#Call the caesar function
-while cipher_state:
+    #Call the caesar function
+    shift = shift % 26
     caesar(start_text=text, shifting_amount=shift, direction=direction)
-    continue_cipher = input("Type \"yes\" if you want to go again. Otherwise type \"no\" or press enter to exit:\n").lower()
 
-    if continue_cipher == "no" or continue_cipher == "":
+    continue_cipher = input("Type \"yes\" if you want to go again. Otherwise type \"no\" or press ENTER to exit:\n").lower()
+    if continue_cipher == "no":
         cipher_state = False
-    elif continue_cipher == "yes":
-        cipher_state = True
+        print("Bye Bye!")
 
 
