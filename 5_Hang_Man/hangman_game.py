@@ -1,4 +1,5 @@
 import random
+import subprocess
 from hangman_wordlist import word_list # import word list from hangman_wordlist file
 from hangman_graphics import logo, stages # import logo and hangman graphics from hangman_graphics file
 
@@ -29,7 +30,8 @@ print(display)
 while "_" in display and lives > 0:
   # Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
   guess = input("Guess a letter: ").lower()
-  
+  #clear the terminal screen
+  subprocess.run("clear", shell=True)
   # If the user has entered a letter they've already guessed, inform the player about it.
   if guess in display:
     print(f"The \"{guess}” has already been guessed")

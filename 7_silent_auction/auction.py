@@ -1,4 +1,4 @@
-import os
+import subprocess
 from graphics import logo
 #HINT: You can call clear() to clear the output in the console.
 
@@ -39,8 +39,8 @@ while more_bid:
     # assaign more_bid to False for exiting
     more_bid = False
   elif continue_biding == "yes":
-    # clears the screen
-    os.system("cls")
+    # clears the terminal screen
+    subprocess.run("clear", shell=True)
 
   
 
