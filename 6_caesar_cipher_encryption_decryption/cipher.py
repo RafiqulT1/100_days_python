@@ -46,7 +46,7 @@ while continue_cipher:
     text = input("Type your message:\n").lower()
     shift = int(input("Type the shift number:\n"))
 
-    #Call the caesar function
+    # Call the caesar function
     shift = shift % 26
     caesar(start_text=text, shifting_amount=shift, direction=direction)
 
