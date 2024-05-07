@@ -1,6 +1,7 @@
 import random
 
 card_list = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+# card_list = [11, 10, 10, 23, 10, 32, 11, 141, 61, 12, 106, 10, 10]
 player_card_list = []
 comp_card_list = []
 # player_draw_card = True
@@ -40,36 +41,89 @@ def adjust_ace_value(card_list):
   return card_list
 
 # Check if player or computer has Blackjack
-def balckjack_checker():
+def balckjack_checker(game_ends, player_total, comp_total):
   if player_total == 21:
     print("you won")
+    return True
   elif comp_total == 21:
-    print("comp won")
+    print("You loose! Computer got 21")
+    return True
+  elif player_total > 21:
+    print("You loose")
+    return True
+  elif comp_total > 21:
+    print("You win")
+    return True
+
+def end_game_score_checker(player_total, comp_total):
+  if player_total < comp_total:
+    print("You won")
+    return True
+  elif comp_total > player_total:
+    print("You Loose")
+    return True
+  elif player_total == comp_total:
+    print("Draw")
+    return True
 
 
 
 ''' ------------ START ------------ '''
-# Draw 2 cards for player and computer 
+
+
+# Print card lists at the start
+# print(f"Your card: {player_card_list} \nComp card: {comp_card_list}")
+
+# print(player_card_list)
+# Display computer's first card
+# print(f"Conmputer's fist card: {comp_card_list[0]}")
+
+  # Draw 2 cards for player and computer 
 for cards in range(2):
   player_draw_card()
   comp_draw_card()
 
-# Print card lists at the start
-print(f"Your card: {player_card_list} \nComp card: {comp_card_list}")
+def balckjack_game(player_card_list, comp_card_list):
+  game_ends = False
+  while not game_ends:
+    # print(f"Your cards: {player_card_list}")
+    # print(f"Computer cards: {comp_card_list}")
 
-# Count total and adjust Ace value
-player_card_list, comp_card_list, player_total, comp_total = count_total_card_value(player_cards=player_card_list, comp_cards=comp_card_list)
+    # Count total and adjust Ace value
+    player_card_list, comp_card_list, player_total, comp_total = count_total_card_value(player_cards=player_card_list, comp_cards=comp_card_list)
 
-# incase player or computer get 2xAce at the beginning of the game
-if player_total > 21 or comp_total > 21:
-  player_card_list, comp_card_list, player_total, comp_total = count_total_card_value(player_cards=player_card_list, comp_cards=comp_card_list)
+    # incase player or computer get 2xAce at the beginning of the game
+    if player_total > 21 or comp_total > 21:
+      player_card_list, comp_card_list, player_total, comp_total = count_total_card_value(player_cards=player_card_list, comp_cards=comp_card_list)
+      
+    # Display player's card and display card total
+    print(f"Your cards: {player_card_list} player total: {player_total}")
+    print(f"Computer cards: {comp_card_list} player total: {comp_total}")
 
-print(f"player total: {player_total} \ncompt total: {comp_total}")
+    # game ends immediately when player or computer socre is 21
+    game_ends = balckjack_checker(game_ends, player_total, comp_total)
 
+    if game_ends == True:
+      return game_ends
 
+    draw_another_card = input("Type 'y' to get another card, type 'n' to pass: ")
 
-print(player_card_list)
-print(comp_card_list)
+    if draw_another_card == "y":
+      player_draw_card()
+      balckjack_game(player_card_list, comp_card_list)
+    elif draw_another_card == "n":
+      while comp_total <= 16:
+        comp_draw_card()
+        player_card_list, comp_card_list, player_total, comp_total = count_total_card_value(player_cards=player_card_list, comp_cards=comp_card_list)
+      game_ends = end_game_score_checker(player_total, comp_total)
+      game_ends = balckjack_checker(game_ends, player_total, comp_total)
+
+    if game_ends == True:
+      return game_ends
+    
+
+balckjack_game(player_card_list, comp_card_list)
+
 
 
 
