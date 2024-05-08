@@ -78,7 +78,7 @@ def end_game_score_checker(player_total, comp_total):
 # Display computer's first card
 # print(f"Conmputer's fist card: {comp_card_list[0]}")
 
-  # Draw 2 cards for player and computer 
+# Draw 2 cards for player and computer 
 for cards in range(2):
   player_draw_card()
   comp_draw_card()
@@ -103,15 +103,20 @@ def balckjack_game(player_card_list, comp_card_list):
     # game ends immediately when player or computer socre is 21
     game_ends = balckjack_checker(game_ends, player_total, comp_total)
 
+    # game ends if computer or player get 21
     if game_ends == True:
       return game_ends
 
+    # ask player if he/she wants to get another card
     draw_another_card = input("Type 'y' to get another card, type 'n' to pass: ")
 
+    # if "Yes" draw a card for the player
     if draw_another_card == "y":
       player_draw_card()
       balckjack_game(player_card_list, comp_card_list)
+    # If player not wants to draw card computer draw card 
     elif draw_another_card == "n":
+      # computer draw card until it's score is at least card total is 16
       while comp_total <= 16:
         comp_draw_card()
         player_card_list, comp_card_list, player_total, comp_total = count_total_card_value(player_cards=player_card_list, comp_cards=comp_card_list)
