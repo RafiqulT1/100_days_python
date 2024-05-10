@@ -1,4 +1,5 @@
 import random
+import subprocess
 from blackjack_graphics import logo
 card_list = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
@@ -33,15 +34,15 @@ def balckjack(card_total):
 # check for winner
 def determine_winner(player_total, comp_total):
   if player_total > 21:
-    print("Computer Wins")
+    print("You Loose. Your score went over 21 😫")
   if comp_total > 21:
-    print("You won")
+    print("You won 😎")
   elif player_total == comp_total:
-    print("Draw")
+    print("Draw 😶")
   elif (player_total-21) > (comp_total-21):
-    print("You won")
+    print("You won 😎")
   elif (player_total-21) < (comp_total-21):
-    print("You Loose")
+    print("You Loose 🙁")
 
 
 ''' ------------ MAIN LOGIC ------------ '''
@@ -69,12 +70,12 @@ def balckjack_game():
 
     # ckeck if player has balckjack or total card value is over 21
     if player_total == 21:
-      print("Blackjack! You win!")
+      print("Blackjack! You win! 🤩")
       game_continue = False
       break
     # check if player card total value if over 21
     if player_total > 21:
-      print("You lost the game")
+      print("You Loose. Your score went over 21 😫")
       game_continue = False
       break
 
@@ -83,10 +84,18 @@ def balckjack_game():
 
     # if "Yes" draw a card for the player
     if draw_another_card == "y":
+      #clear terminal screen
+      subprocess.run("clear", shell=True)
+      # print graphics
+      print(logo)
       player_draw_card(player_card_list)
 
     # If player do not want to draw, computer starts drawing cards 
     elif draw_another_card == "n":
+      #clear terminal screen
+      subprocess.run("clear", shell=True)
+      # print graphics
+      print(logo)
       # calculates computer's total card value
       comp_total = count_total_card_value(cards=comp_card_list)
       # computer draw card until it's score is at least card total is 16
@@ -107,7 +116,9 @@ def main():
   new_game = True
   while new_game:
     balckjack_game()
-    start_new_game = input("Press 'y' for new game\nPress 'n' to quit\nWould you like to play another game?: ")
+    start_new_game = input("Press 'y' for new game or Press 'n' to quit\nWould you like to play another game?: ")
+    #clear terminal screen
+    subprocess.run("clear", shell=True)
     if start_new_game != "y":
       new_game = False
 
