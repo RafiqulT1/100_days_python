@@ -13,7 +13,7 @@ def choose_data():
     return name, followers, description, country
 
 
-# Campare A & B followers and check if user answer is correct
+# Compare A & B followers and check if user answer is correct
 def compare_follower(guess, A_follower, B_follower):
     if A_follower > B_follower and guess == 'a':
         return True
@@ -28,7 +28,7 @@ def compare_follower(guess, A_follower, B_follower):
 def game_logic(A_name, A_follower, A_description, A_country, score, correct_guess):
 
     while correct_guess:
-        # assaign data in to B group variables 
+        # assign data in to B group variables 
         B_name, B_follower, B_description, B_country = choose_data()
         
         # prints A and B group variables
@@ -44,14 +44,14 @@ def game_logic(A_name, A_follower, A_description, A_country, score, correct_gues
         correct_guess = compare_follower(guess, A_follower, B_follower)
 
         if correct_guess:
-            # assaign B group variables to new A group valiable
+            # assign B group variables to new A group variable
             A_name = B_name
             A_follower = B_follower
             A_description = B_description
             A_country = B_country
             score += 1 # add + 1 to the score 
 
-            # Clear the termianl screen
+            # Clear the terminal screen
             subprocess.run("clear", shell=True)
             print(logo) # print game logo
             print(f"That's Correct. Your Score: {score}") # let the user know that the guess it correct
@@ -80,7 +80,7 @@ def main():
         subprocess.run("clear", shell=True)
         print(logo)
 
-        # assaign data in to A group variables 
+        # assign data in to A group variables 
         A_name, A_follower, A_description, A_country = choose_data()
 
         # calls for game logic with A group variable values
