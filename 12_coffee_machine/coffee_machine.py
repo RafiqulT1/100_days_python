@@ -26,6 +26,19 @@ def report():
     # print(f"Water = {resources["water"]}")
     # IT RETURN "SyntaxError". NOT SURE WHY!
 
+def check_enough_ingredient(drink):
+    """ Check if there is enough ingredient """
+    if resources["water"] < MENU[drink]["ingredients"]["water"]:
+        print("Sorry, not enough water")
+        return False
+    if resources["milk"] < MENU[drink]["ingredients"]["milk"]:
+        print("Sorry, not enough milk")
+        return False
+    if resources["coffee"] < MENU[drink]["ingredients"]["coffee"]:
+        print("Sorry not enough coffee")
+        return False
+    return True
+
 def total_money():
     """ 
     - Ask user what coins they are inserting and how many.
@@ -52,12 +65,13 @@ def total_money():
     return False
 
 def make_drink(drink):
-    # print(MENU)
+    """ Make a drink and subtract ingredient from the resources. """
     resources["water"] -= MENU[drink]["ingredients"]["water"]
     resources["milk"] -= MENU[drink]["ingredients"]["milk"]
     resources["coffee"] -= MENU[drink]["ingredients"]["coffee"]
-    # print(resources)
-# make_drink("Espresso")
+
+    # drink gets served
+    print(f"Here is your {drink} ☕️. Enjoy!")
 
 
 def run_machine():
@@ -76,7 +90,7 @@ def run_machine():
             power_on = False
             print("POWERING OFF")
             break
-        elif int(user_request) in range(1,4):
+        elif HOT_DRINK[user_request] and check_enough_ingredient(HOT_DRINK[user_request]):
             # get wanted drink to and assign to drink variable
             drink = HOT_DRINK[user_request]
             print(f"{drink} cost 2.50€")
@@ -85,8 +99,6 @@ def run_machine():
             if total_money():
                 # if enough money make drink
                 make_drink(drink)
-                # drink gets served
-                print(f"Here is your {drink} ☕️. Enjoy!")
 
 
 run_machine()
