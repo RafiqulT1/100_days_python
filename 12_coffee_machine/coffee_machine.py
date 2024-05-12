@@ -28,28 +28,24 @@ def report():
     # IT RETURN "SyntaxError". NOT SURE WHY!
 
 def check_enough_ingredient(drink):
-    """ Check if there is enough ingredient """
-    print("") #print an empty line
-    if resources["water"] < MENU[drink]["ingredients"]["water"]:
-        print("Sorry, not enough water ⚠️")
-        return False
-    if resources["milk"] < MENU[drink]["ingredients"]["milk"]:
-        print("Sorry, not enough milk ⚠️")
-        return False
-    if resources["coffee"] < MENU[drink]["ingredients"]["coffee"]:
-        print("Sorry not enough coffee ⚠️")
-        return False
+    """ Check if there is enough ingredients """
+    drink_ingredients = MENU[drink]["ingredients"]
+    
+    for item in drink_ingredients:
+        if resources[item] < drink_ingredients[item]:
+            print("") #print an empty line
+            print(f"Sorry, there is not enough {item}. ⚠️")
+            return False
     return True
 
 def total_money(cost):
     """ 
     - Ask user what coins they are inserting and how many.
     - calculate total money.
-    - subtract 2.50€ from total.
+    - subtract cost from total.
     - gave change back
     - add money to the resources dictionary
     - if not enough money refund money
-    - serve the drink
     """
     euro_2 = int(input("How many 2€ coins: "))
     euro_1 = int(input("How many 1€ coins: "))
@@ -69,7 +65,10 @@ def total_money(cost):
     return False
 
 def make_drink(drink):
-    """ Make a drink and subtract ingredient from the resources. """
+    """ 
+    - Make a drink and subtract ingredient from the resources.
+    - Serve drink
+    """
     resources["water"] -= MENU[drink]["ingredients"]["water"]
     resources["milk"] -= MENU[drink]["ingredients"]["milk"]
     resources["coffee"] -= MENU[drink]["ingredients"]["coffee"]
@@ -100,7 +99,7 @@ def run_machine():
             # assign drink's cost to cost variable
             cost = cost = MENU[drink]["cost"]
             print("") #print an empty line
-            print(f"{drink} cost 2.50€")
+            print(f"{drink} cost {cost}") #print how much the drink costs
             print("Only 2€ / 1€ / 50c are accepted. Please insert your coins.")
 
             if total_money(cost):
@@ -109,3 +108,19 @@ def run_machine():
 
 
 run_machine()
+
+
+
+
+
+
+# test corner
+    # if resources["water"] < MENU[drink]["ingredients"]["water"]:
+    #     print("Sorry, not enough water ⚠️")
+    #     return False
+    # if resources["milk"] < MENU[drink]["ingredients"]["milk"]:
+    #     print("Sorry, not enough milk ⚠️")
+    #     return False
+    # if resources["coffee"] < MENU[drink]["ingredients"]["coffee"]:
+    #     print("Sorry not enough coffee ⚠️")
+    #     return False
