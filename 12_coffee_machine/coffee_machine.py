@@ -5,6 +5,7 @@ from machine_data import MENU, resources, HOT_DRINK
 def drink_list():
     """ Get all the hot drink names from hot_drinks dictionary 
     and prints them while this function is called """
+    print("") #print an empty line
     print("  -----HOT FLAVOUR LIST-----")
     for num, drink in HOT_DRINK.items():
         print(f"{num}. {drink}")
@@ -28,14 +29,15 @@ def report():
 
 def check_enough_ingredient(drink):
     """ Check if there is enough ingredient """
+    print("") #print an empty line
     if resources["water"] < MENU[drink]["ingredients"]["water"]:
-        print("Sorry, not enough water")
+        print("Sorry, not enough water ⚠️")
         return False
     if resources["milk"] < MENU[drink]["ingredients"]["milk"]:
-        print("Sorry, not enough milk")
+        print("Sorry, not enough milk ⚠️")
         return False
     if resources["coffee"] < MENU[drink]["ingredients"]["coffee"]:
-        print("Sorry not enough coffee")
+        print("Sorry not enough coffee ⚠️")
         return False
     return True
 
@@ -60,8 +62,9 @@ def total_money():
         print(f"You inserted {total}€. Here is {change}€ in change")
         resources["money"] += 2.50
         return True
-
-    print(f"Sorry, not enough money. {total}€ has been refunded")
+    
+    print("") #print an empty line
+    print(f"Sorry, not enough money. ⚠️\n{total}€ has been refunded. ✅")
     return False
 
 def make_drink(drink):
@@ -71,7 +74,8 @@ def make_drink(drink):
     resources["coffee"] -= MENU[drink]["ingredients"]["coffee"]
 
     # drink gets served
-    print(f"Here is your {drink} ☕️. Enjoy!")
+    print("") #print an empty line
+    print(f"Here is your {drink} ☕️. Enjoy! ✅")
 
 
 def run_machine():
@@ -93,6 +97,7 @@ def run_machine():
         elif HOT_DRINK[user_request] and check_enough_ingredient(HOT_DRINK[user_request]):
             # get wanted drink to and assign to drink variable
             drink = HOT_DRINK[user_request]
+            print("") #print an empty line
             print(f"{drink} cost 2.50€")
             print("Only 2€ / 1€ / 50c are accepted. Please insert your coins.")
 
