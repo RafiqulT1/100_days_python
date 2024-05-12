@@ -41,7 +41,7 @@ def check_enough_ingredient(drink):
         return False
     return True
 
-def total_money():
+def total_money(cost):
     """ 
     - Ask user what coins they are inserting and how many.
     - calculate total money.
@@ -57,10 +57,11 @@ def total_money():
     # calculate total
     total = 2*euro_2 + 1*euro_1 + 0.50*cent_50
 
-    if total >= 2.50:
-        change = total - 2.50
+    if total >= cost:
+        change = total - cost
+        print("") #print an empty line
         print(f"You inserted {total}€. Here is {change}€ in change")
-        resources["money"] += 2.50
+        resources["money"] += cost
         return True
     
     print("") #print an empty line
@@ -74,7 +75,6 @@ def make_drink(drink):
     resources["coffee"] -= MENU[drink]["ingredients"]["coffee"]
 
     # drink gets served
-    print("") #print an empty line
     print(f"Here is your {drink} ☕️. Enjoy! ✅")
 
 
@@ -97,11 +97,13 @@ def run_machine():
         elif HOT_DRINK[user_request] and check_enough_ingredient(HOT_DRINK[user_request]):
             # get wanted drink to and assign to drink variable
             drink = HOT_DRINK[user_request]
+            # assign drink's cost to cost variable
+            cost = cost = MENU[drink]["cost"]
             print("") #print an empty line
             print(f"{drink} cost 2.50€")
             print("Only 2€ / 1€ / 50c are accepted. Please insert your coins.")
 
-            if total_money():
+            if total_money(cost):
                 # if enough money make drink
                 make_drink(drink)
 
