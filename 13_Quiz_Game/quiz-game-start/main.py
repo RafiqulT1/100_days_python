@@ -12,10 +12,13 @@ for data in question_data:
     question_bank.append(new_ques_and_ans)
     
 quiz = QuizBrain(question_bank)
-quiz.next_question()
 
+while quiz.still_has_question():
+    quiz.next_question()
+    
+print("You've completed the quiz")
+print(f"Your final score was: {quiz.score}/{len(question_bank)}")
 
 #     print(question_data[i])
 # print(question_data[1])
     # q_&_a = Question()
-    
