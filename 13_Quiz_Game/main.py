@@ -23,3 +23,5 @@ while not quiz.questions_left():
     quiz.ask_question()
     quiz.question_number += 1
 
+print("You've completed the quiz")
+print(f"Your final score was: {quiz.score}/{quiz.question_number}")
