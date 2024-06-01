@@ -1,46 +1,34 @@
-from turtle import Screen, Turtle
+from turtle import Screen
+from snake import Snake
 import time
 
-square_boxes = []
-change_x_axis = 0
+snake_body = []
+# change_x_axes = 0
 
-screen = Screen()
-screen.setup(width=600, height=600)
-screen.bgcolor("black")
-screen.title("Snake Game")
-screen.tracer(0)
+# Turtle Screen Setup
+SCREEN = Screen()
+SCREEN.setup(width=600, height=600)
+SCREEN.bgcolor("black")
+SCREEN.title("Snake Game")
+SCREEN.tracer(0)
 
-for i in range(3):
-    new_squire_box = Turtle(shape="square")
-    new_squire_box.color("white")
-    new_squire_box.penup()
-    new_squire_box.goto(x=0 + change_x_axis, y=0)
-    square_boxes.append(new_squire_box)
-    change_x_axis -= 20
+# Create snake object
+snake = Snake()
 
-
-game_on = True
-
-while game_on:
-    screen.update()
-    time.sleep(1)
-    for box in square_boxes:
-        box.forward(10)
+SCREEN.listen()
+SCREEN.onkey(snake.up, "Up")
+SCREEN.onkey(snake.down, "Down")
+SCREEN.onkey(snake.left, "Left")
+SCREEN.onkey(snake.right, "Right")
 
 
+GAME_ON = True
+
+# snake.create_snake_body()
+while GAME_ON:
+    SCREEN.update()
+    time.sleep(0.1)
+    snake.move()
 
 
-
-
-
-
-
-
-
-
-
-screen.exitonclick()
-
-
-
-
+SCREEN.exitonclick()
