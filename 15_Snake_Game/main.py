@@ -12,7 +12,7 @@ SCREEN = Screen()
 SCREEN.setup(width=600, height=600)
 SCREEN.bgcolor("black")
 SCREEN.title("Snake Game")
-SCREEN.tracer(0)
+SCREEN.tracer(100)
 
 # Create snake object
 snake = Snake()
