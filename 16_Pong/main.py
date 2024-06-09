@@ -36,7 +36,18 @@ while game_on:
 
     if ball.xcor() > 325 and ball.distance(right_paddle) < 55 or ball.xcor() < -325 and ball.distance(left_paddle) < 55:
         ball.color("blue")
-        ball.paddle_bounce()   
+        ball.paddle_bounce()
+
+    if ball.xcor() > 375:
+    # and not ball.distance(right_paddle) < 55 or ball.xcor() < -325 and not ball.distance(left_paddle) < 55:
+        # print("right paddle lost")
+        # game_on = False
+        ball.reset_ball_position(120)
+    if ball.xcor() < -375:
+        # print("left paddle lost")
+        ball.reset_ball_position(120)
+        # game_on = False
+
     # or ball.xcor() <= -325:
         # ball.paddle_bounce()
 

@@ -8,11 +8,11 @@ class Ball(Turtle):
         super().__init__()
         self.shape("circle")
         self.color("white")
-        # self.penup()
+        self.penup()
         self.speed(0)
         self.goto(x=0, y=0)
-        self.go_x_direction = 0.2
-        self.go_y_direction = 0.2
+        self.go_x_direction = 0.5
+        self.go_y_direction = 0.5
 
     def move_ball(self):
         """Move the ball"""
@@ -28,21 +28,10 @@ class Ball(Turtle):
     def paddle_bounce(self):
         """Bounce from paddle. When ball hit the paddle,
         we reverse the x axes direction but multiplying -1"""
-        self.go_x_direction *= -1 
-    # def move(self):
-    #     """Move the ball"""
-    #     self.setheading(self.angle)
-    #     new_x = self.xcor() + SPEED
-    #     new_y = self.ycor() + SPEED
-    #     self.goto(new_x, new_y)
-    
+        self.go_x_direction *= -1
 
-    # def bounce(self):
-    #     new_x = (self.xcor()) * -2
-    #     new_y = (self.ycor()) * -2
-    #     self.goto(new_x, new_y)
-
-    # def change_direction(self):
-    #     new_x = self.xcor() - 4
-    #     new_y = self.ycor() - 4
-    #     self.goto(new_x, new_y)
+    def reset_ball_position(self):
+        """Reset ball position to (0,0) and
+        alternately ball changes its starting direction"""
+        self.goto(x=0, y=0)
+        self.go_x_direction *= -1
