@@ -27,19 +27,17 @@ game_on = True
 
 while game_on:
     SCREEN.update()
-    ball.move()
+    ball.move_ball()
 
     # Detect ball collision with wall
     if ball.ycor() >= 286 or ball.ycor() <= -286:
         ball.color("red")
         ball.wall_bounce()
-    elif ball.xcor() >= 325 or ball.xcor() <= -325:
+
+    if ball.xcor() > 325 and ball.distance(right_paddle) < 55 or ball.xcor() < -325 and ball.distance(left_paddle) < 55:
         ball.color("blue")
-        ball.paddle_bounce()
-
-        # ball.move(-0.4)
-        # ball.bounce()
-
-        # ball.change_direction()
+        ball.paddle_bounce()   
+    # or ball.xcor() <= -325:
+        # ball.paddle_bounce()
 
 SCREEN.exitonclick()

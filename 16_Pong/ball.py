@@ -11,21 +11,23 @@ class Ball(Turtle):
         # self.penup()
         self.speed(0)
         self.goto(x=0, y=0)
-        self.go_x_direction = 0.4
-        self.go_y_direction = 0.4
+        self.go_x_direction = 0.2
+        self.go_y_direction = 0.2
 
-
-
-    def move(self):
+    def move_ball(self):
         """Move the ball"""
         new_x = self.xcor() + self.go_x_direction
         new_y = self.ycor() + self.go_y_direction
         self.goto(new_x, new_y)
 
     def wall_bounce(self):
+        """Bounce from wall. When ball hit the wall,
+        we reverse the Y axes direction but multiplying -1 """
         self.go_y_direction *= -1 
 
     def paddle_bounce(self):
+        """Bounce from paddle. When ball hit the paddle,
+        we reverse the x axes direction but multiplying -1"""
         self.go_x_direction *= -1 
     # def move(self):
     #     """Move the ball"""
