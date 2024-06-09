@@ -1,6 +1,7 @@
 from turtle import Screen
 from paddle import Paddle
 from ball import Ball
+from scoreboard import Scoreboard
 
 # Screen settings
 SCREEN = Screen()
@@ -12,9 +13,11 @@ SCREEN.tracer(0)
 # Create left and right paddle
 right_paddle = Paddle(x_axes=350, y_axes=0)
 left_paddle = Paddle(x_axes=-350, y_axes=0)
-
 # Create ball
 ball = Ball()
+# Crate scoreboard
+left_paddle_board = Scoreboard(-100, 200)
+right_paddle_board = Scoreboard(100, 200)
 
 # listening to keyboard input for left_paddle & right_paddle movement
 SCREEN.listen()
@@ -31,24 +34,21 @@ while game_on:
 
     # Detect ball collision with wall
     if ball.ycor() >= 286 or ball.ycor() <= -286:
-        ball.color("red")
         ball.wall_bounce()
 
-    if ball.xcor() > 325 and ball.distance(right_paddle) < 55 or ball.xcor() < -325 and ball.distance(left_paddle) < 55:
+    if ball.xcor() > 325 and ball.distance(right_paddle) < 55:
         ball.color("blue")
+        ball.paddle_bounce()  
+    elif ball.xcor() < -325 and ball.distance(left_paddle) < 55:
+        ball.color("red")
         ball.paddle_bounce()
 
     if ball.xcor() > 375:
-    # and not ball.distance(right_paddle) < 55 or ball.xcor() < -325 and not ball.distance(left_paddle) < 55:
-        # print("right paddle lost")
-        # game_on = False
-        ball.reset_ball_position(120)
-    if ball.xcor() < -375:
-        # print("left paddle lost")
-        ball.reset_ball_position(120)
-        # game_on = False
+        ball.reset_ball_position()
+        left_paddle_board.increase_point()
 
-    # or ball.xcor() <= -325:
-        # ball.paddle_bounce()
+    if ball.xcor() < -375:
+        ball.reset_ball_position()
+        right_paddle_board.increase_point()
 
 SCREEN.exitonclick()
