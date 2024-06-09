@@ -25,16 +25,6 @@ class Snake:
         new_snake_body.goto(x=0 + self.change_x_axes, y=0) # place snake body side by side
         self.snake_body.append(new_snake_body) # append newly created snake body object to list
         self.change_x_axes -= 20
-        # for _ in range(3):
-        #     new_snake_body = Turtle(shape="square") # Creating snake body object (turtle object)
-        #     new_snake_body.color("white") # set snake body color to white
-        #     new_snake_body.penup()
-        #     new_snake_body.goto(x=0 + self.change_x_axes, y=0) # place snake body side by side
-        #     self.snake_body.append(new_snake_body) # append newly created snake body object to list
-        #     self.change_x_axes -= 20
-    
-    # def extend_body_length(self):
-    #     self.add_snake_body()
 
     def move(self):
         "Move the snake forward."

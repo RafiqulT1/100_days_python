@@ -37,7 +37,7 @@ while GAME_ON:
     # Detect food collision with snake head and create new food
     if snake.snake_head.distance(food) < 18:
         food.refresh()
-        scoreboard.increase_core()
+        scoreboard.increase_score()
         snake.add_snake_body()
 
     # Detect collision with wall.
