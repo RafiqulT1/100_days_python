@@ -1,4 +1,4 @@
-# Treasure Island
+# Treasure Island 🏝️
 ## Overview
 It’s a simple text-based choose your own adventure game called "Treasure Island". The player will make a series of choices to navigate through the game, with the goal of finding the hidden treasure, without knowing what lies ahead on the way. The game uses conditional statements to determine the player's progress based on their inputs.
 
