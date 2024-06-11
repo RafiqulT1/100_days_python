@@ -13,7 +13,7 @@ The game proceeds through a series of choices. Each choice affects the outcome o
 3. red, yellow or blue.
 
 # How to run 
-Please download [treasure_island.py](https://github.com/RafiqulT1/100_days_python/blob/main/1_treasure_island/treasure_island.py) file and run the [treasure_island.py](https://github.com/RafiqulT1/100_days_python/blob/main/1_treasure_island/treasure_island.py) file using:
+Please download [treasure_island.py](https://github.com/RafiqulT1/100_days_python/blob/main/01_treasure_island/treasure_island.py) file and run the [treasure_island.py](https://github.com/RafiqulT1/100_days_python/blob/main/01_treasure_island/treasure_island.py) file using:
 
 ```
 “python treasure_island.py”
