@@ -9,8 +9,8 @@ The game begins with a welcome message and instructions for the player.
 The game proceeds through a series of choices. Each choice affects the outcome of the game.
 
 1. First Choice: left or right
-2. swim or wait
-3. red, yellow or blue.
+2. Second Choice: swim or wait
+3. Third Choice: red, yellow or blue.
 
 # How to run 
 Please download [treasure_island.py](https://github.com/RafiqulT1/100_days_python/blob/main/01_treasure_island/treasure_island.py) file and run the [treasure_island.py](https://github.com/RafiqulT1/100_days_python/blob/main/01_treasure_island/treasure_island.py) file using:
