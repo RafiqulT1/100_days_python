@@ -8,7 +8,7 @@ class Ball(Turtle):
         self.shape("circle")
         self.color("white")
         self.penup()
-        self.speed(0)
+        self.speed(2)
         self.goto(x=0, y=0)
         self.go_x_direction = 0.15
         self.go_y_direction = 0.15
@@ -28,8 +28,8 @@ class Ball(Turtle):
         """Bounce from paddle. When ball hit the paddle,
         we reverse the x axes direction but multiplying -1"""
         self.go_x_direction *= -1
-        self.go_x_direction += 0.002
-        self.go_y_direction += 0.002
+        self.go_x_direction += 0.02
+        self.go_y_direction += 0.02
 
     def reset_ball_position(self):
         """Reset ball position to (0,0) and

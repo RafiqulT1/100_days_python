@@ -8,6 +8,7 @@ SCREEN = Screen()
 SCREEN.title("PONG")
 SCREEN.setup(width=800, height=600)
 SCREEN.bgcolor("black")
+# setting screen tracer to 0 to remove unnecessary animation
 SCREEN.tracer(0)
 
 # Create left and right paddle
@@ -29,6 +30,7 @@ SCREEN.onkey(left_paddle.move_down, "s")
 game_on = True
 
 while game_on:
+    # setting manual screen updating method as screen.tracer is 0
     SCREEN.update()
     ball.move_ball()
 
