@@ -10,8 +10,8 @@ class Ball(Turtle):
         self.penup()
         self.speed(2)
         self.goto(x=0, y=0)
-        self.go_x_direction = 0.15
-        self.go_y_direction = 0.15
+        self.go_x_direction = 1
+        self.go_y_direction = 1
 
     def move_ball(self):
         """Move the ball"""
