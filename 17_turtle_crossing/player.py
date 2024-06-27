@@ -4,7 +4,6 @@ STARTING_POSITION = (0, -280)
 MOVE_DISTANCE = 10
 FINISH_LINE_Y = 280
 
-
 class Player(Turtle):
     """Create Turtle Player"""
     def __init__(self):
@@ -23,8 +22,7 @@ class Player(Turtle):
     def cross_finish_line(self):
         """Check if the turtle player have reached the finish line"""
         return self.ycor() == FINISH_LINE_Y
-    
+
     def reset_position(self):
         """Reset player position"""
         self.goto(STARTING_POSITION)
-
