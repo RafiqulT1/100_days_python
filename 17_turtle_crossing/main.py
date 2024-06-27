@@ -8,12 +8,13 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
-turtle_player = Player()
+player = Player()
 cars = CarManager()
+scoreboard = Scoreboard()
 
 # Listen to keyboard input
 screen.listen()
-screen.onkey(turtle_player.move_forward, "Up")
+screen.onkey(player.move_forward, "Up")
 
 game_is_on = True
 while game_is_on:
@@ -22,10 +23,16 @@ while game_is_on:
     cars.create_car()
     cars.move()
 
+    # Check if player cross the finish line
+    if player.cross_finish_line():
+        scoreboard.increase_level()
+        player.reset_position()
+        cars.increase_speed()
+
     # Detect collision with car
     for car in cars.cars_list:
-        if turtle_player.distance(car) < 30:
+        if player.distance(car) < 22:
             game_is_on = False
+            scoreboard.game_over()
 
-    # Check if player cross the finish line
-    
+screen.exitonclick()

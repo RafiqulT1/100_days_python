@@ -20,7 +20,11 @@ class Player(Turtle):
         new_y_axis = self.ycor() + MOVE_DISTANCE
         self.goto(self.xcor(), new_y_axis)
 
-    def check_finish_line(self):
+    def cross_finish_line(self):
         """Check if the turtle player have reached the finish line"""
         return self.ycor() == FINISH_LINE_Y
+    
+    def reset_position(self):
+        """Reset player position"""
+        self.goto(STARTING_POSITION)
 
