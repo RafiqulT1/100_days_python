@@ -19,4 +19,8 @@ game_is_on = True
 while game_is_on:
     time.sleep(0.1)
     screen.update()
+    cars.create_car()
+    cars.move()
+
+
     # print(turtle_player.check_finish_line())
