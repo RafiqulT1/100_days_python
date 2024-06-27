@@ -22,5 +22,10 @@ while game_is_on:
     cars.create_car()
     cars.move()
 
+    # Detect collision with car
+    for car in cars.cars_list:
+        if turtle_player.distance(car) < 30:
+            game_is_on = False
 
-    # print(turtle_player.check_finish_line())
+    # Check if player cross the finish line
+    
