@@ -38,6 +38,7 @@ while game_on:
     if ball.ycor() >= 286 or ball.ycor() <= -286:
         ball.wall_bounce()
 
+    # Detect collision with paddles
     if ball.xcor() > 325 and ball.distance(right_paddle) < 55:
         ball.color("blue")
         ball.paddle_bounce()  
