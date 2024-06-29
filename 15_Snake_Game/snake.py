@@ -33,8 +33,14 @@ class Snake:
             y_axes = self.snake_body[body_part_num - 1].ycor()
             self.snake_body[body_part_num].goto(x_axes, y_axes)
         self.snake_body[0].forward(Move_DISTANCE)
-        
         # self.snake_body[0].left(10)
+
+    def reset(self):
+        for body in self.snake_body:
+            body.goto(1000, 1000)
+        self.snake_body.clear()
+        self.create_snake()
+        self.snake_head = self.snake_body[0]
 
     def up(self):
         if self.snake_head.heading() != DOWN:
