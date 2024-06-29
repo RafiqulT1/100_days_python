@@ -16,7 +16,8 @@ class CarManager():
 
     def create_car(self):
         "create car object and append to cars list"
-        if random.randint(1, TRAFFIC_DENSITY) == 6: #reduce the car generation frequency
+        random_chance = random.randint(1, TRAFFIC_DENSITY)
+        if random_chance == 6: #reduce the car generation frequency
             new_car = Turtle("square")
             new_car.color(random.choice(COLORS))
             new_car.turtlesize(stretch_wid=None, stretch_len=2, outline=0)
@@ -33,6 +34,12 @@ class CarManager():
     def increase_speed(self):
         """Increase car speed"""
         self.cars_speed += MOVE_INCREMENT
+
+
+
+
+
+### for future improvement ###
         # self.increase_generation_frequency()
         # self.remove_car()
 
@@ -44,7 +51,6 @@ class CarManager():
     #     self.car_gen_freq -= 1
     #     print(f"car freq: {self.car_gen_freq}")
 
-    
     # def remove_car(self):
     #     if len(self.cars_list) > 30:
     #         for i in self.cars_list:

@@ -2,12 +2,11 @@ from turtle import Turtle
 ALIGNMENT = "left"
 FONT = ("Courier", 24, "normal")
 
-
 class Scoreboard(Turtle):
     "Show score on the game window and and let user know when the game is over"
     def __init__(self):
         super().__init__()
-        self.level = 0
+        self.level = 1
         self.color("Black")
         self.penup()
         self.goto(-280, 270)
