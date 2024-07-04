@@ -24,7 +24,6 @@ turtle.shape(image)
 # create object from StatePlacement class
 state_placement = StatePlacement()
 
-
 # main logic
 while total_guesses < total_states:
     #set up prompt window
