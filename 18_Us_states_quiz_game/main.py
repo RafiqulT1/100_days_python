@@ -7,9 +7,9 @@ import turtle
 
 
 # global variables
-guessesed_states = []
+guessed_states = []
 total_states = len(all_states)
-total_guesses = len(guessesed_states)
+total_guesses = len(guessed_states)
 
 
 # set turtle window
@@ -33,20 +33,20 @@ while total_guesses < total_states:
     # check user guess and place state name on map if the guess is correct
     for state in all_states:
         if user_guess == state:
-            # append correctly guessed state to guessesed_states list and remove from all_state_list
-            guessesed_states.append(user_guess)
+            # append correctly guessed state to guessed_states list and remove from all_state_list
+            guessed_states.append(user_guess)
             all_states.remove(user_guess)
             # place state name on map
             state_placement.to_x_y_pos(user_guess)
 
     # check if user wants to exit the game
     if user_guess == "Exit":
-        unguessed_states = all_states
+        unguessed_states_states = all_states
         # create csv file of unguessed states
-        unguessed_states_data = pandas.DataFrame(unguessed_states)
+        unguessed_states_data = pandas.DataFrame(guessed_states)
         unguessed_states_data.to_csv("unguessed_states.csv")
         # create csv file of guessed states
-        guessed_states_data = pandas.DataFrame(guessesed_states)
+        guessed_states_data = pandas.DataFrame(guessed_states)
         guessed_states_data.to_csv("guessed_states.csv")
         break
 
