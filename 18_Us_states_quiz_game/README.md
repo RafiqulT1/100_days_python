@@ -17,7 +17,7 @@ To exit the game simply type `exit` in the prompt. It will stop the game and gen
 - `pandas` module: please install pandas applying ```pip install pandas```. More info: [How To Install Pandas](https://pandas.pydata.org/docs/getting_started/install.html)
 
 ## How to run
-1. Download 18_Us_states_quiz_game folder. Quick download [link](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FRafiqulT1%2F100_days_python%2Ftree%2Fmain%2F18_Us_states_quiz_game) 
+1. Download 18_Us_states_quiz_game folder. Quick [download](https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2FRafiqulT1%2F100_days_python%2Ftree%2Fmain%2F18_Us_states_quiz_game) 
 2. Run `main.py` file to start US State Quiz Game.
 ```
 python main.py
