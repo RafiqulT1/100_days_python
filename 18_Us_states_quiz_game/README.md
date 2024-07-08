@@ -5,7 +5,7 @@ This educational game challenges you to guess and learn all the states in the US
 ## How to play
 As the game starts, you will be presented with a blank map of the United States. A prompt will ask you to enter the name of a state. Each time you correctly guess a state's name, that state will appear on the map in its correct location. Your goal is to correctly identify all 50 states.
 
-To exit the game simply type `exit` in the prompt. It will stop the game and generate `guessed_states.csv` & `unguessed_states.csv` files more about them in [Features](##Features) section
+To exit the game simply type `exit` in the prompt. It will stop the game and generate `guessed_states.csv` & `unguessed_states.csv` files more about them in [Features](https://github.com/RafiqulT1/100_days_python/tree/main/18_Us_states_quiz_game#features) section
 
 ## Features
 - **Interactive Learning:** As you correctly guess each state, it will be displayed on the map, reinforcing your memory through visual learning.
