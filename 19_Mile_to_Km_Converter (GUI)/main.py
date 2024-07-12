@@ -6,7 +6,7 @@ def button_clicked():
     """Convert to km when button clicked"""
     formula = Formula(int(user_input.get()))
     answer = round(formula.tokm,2)
-    label_2.config(text=answer)
+    label_empty.config(text=answer)
 
 
 # Window configuration
@@ -23,18 +23,18 @@ user_input.insert(END, string="0")
 print(user_input.get())
 user_input.grid(column=0, row=0)
 
-# text in GUI
-label_1 = Label(text="Miles is equal to")
+# text 1st part in GUI
+label_is_equal = Label(text="Miles is equal to")
 # label.config(text="This is new text")
-label_1.grid(column=1, row=0)
+label_is_equal.grid(column=1, row=0)
 
-# Answer text
-label_2 = Label(text="__", font=("Arial", 18))
-label_2.grid(column=2, row=0)
+# text 2nd part in GUI
+label_empty = Label(text="__", font=("Arial", 18))
+label_empty.grid(column=2, row=0)
 
 # text in GUI
-label_3 = Label(text="Km")
-label_3.grid(column=3, row=0)
+label_km = Label(text="Km")
+label_km.grid(column=3, row=0)
 
 # Button
 button = Button(text="Calculate", command=button_clicked)
