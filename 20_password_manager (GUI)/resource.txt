@@ -1,0 +1,3 @@
+- https://tkdocs.com/tutorial/canvas.html
+- https://tkdocs.com/tutorial/widgets.html#entry
+- https://www.w3schools.com/python/python_file_write.asp
