@@ -1,17 +1,26 @@
 # Imports 
 from tkinter import *
+from tkinter import messagebox
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
     # call get_info function to get website, email & password from entry
-    website, email_or_username, password = get_info() 
+    website, email_or_username, password = get_info()
 
-    with open("saved_data.txt", mode="a") as password_file:
-        password_file.write(f"✤ {website} | {email_or_username} | {password}\n")
+    if not website or not password or not email_or_username:
+        messagebox.showinfo(title="Warning", message="Please fill all the empty fields")
+    else: 
+        is_ok = messagebox.askokcancel(title=website, message=f"These are the details entered: \nEmail: {email_or_username} "
+                            f"\nPassword:{password} \nIs it ok to save?")
+        
+        if is_ok:
+            with open("saved_data.txt", mode="a") as password_file:
+                password_file.write(f"✤ {website} | {email_or_username} | {password}\n")
 
-    # call clear_info function to empty entries
-    clear_info()
+            # call clear_info function to empty entries
+        clear_info()
+
 def get_info():
     website = Website_entry.get()
     email_or_username = Eml_username_entry.get()
